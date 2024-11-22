@@ -1,3 +1,5 @@
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -12,6 +14,14 @@ export default defineConfig({
 		vueJsx(),
 		vueDevTools(),
 	],
+	css: {
+		postcss: {
+			plugins: [
+				tailwindcss(),
+				autoprefixer(),
+			],
+		}
+	},
 	resolve: {
 		alias: {
 			'@': fileURLToPath(new URL('./src', import.meta.url))
